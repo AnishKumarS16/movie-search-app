@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Search App - Login</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+                url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            width: 380px;
+            padding: 35px;
+            background: rgba(20, 20, 20, 0.92);
+            border-radius: 12px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #e50914;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 20px;
+
+            border: none;
+            border-radius: 5px;
+
+            background: #333;
+            color: white;
+
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border: 1px solid #e50914;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+
+            border: none;
+            border-radius: 5px;
+
+            background: #e50914;
+            color: white;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #b20710;
+        }
+
+        .error {
+            color: #ff4c4c;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .demo-login {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #aaaaaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="logo">🎬 Movie Search App</div>
+
+        <div class="subtitle">
+            Login to continue
+        </div>
+
+        <form onsubmit="login(event)">
+
+            <label for="username">Username</label>
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter username"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                required
+            >
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <p id="errorMessage" class="error">
+            Invalid username or password
+        </p>
+
+        <div class="demo-login">
+            Demo Username: admin<br>
+            Demo Password: 1234
+        </div>
+
+    </div>
+
+    <script>
+
+        function login(event) {
+
+            event.preventDefault();
+
+            const username =
+                document.getElementById("username").value;
+
+            const password =
+                document.getElementById("password").value;
+
+            const errorMessage =
+                document.getElementById("errorMessage");
+
+            /*
+                Demo login credentials
+            */
+            if (username === "admin" && password === "1234") {
+
+                /*
+                    Login successful.
+                    Redirect to the Movie Search App.
+                */
+                window.location.href = "index.html";
+
+            } else {
+
+                /*
+                    Login failed.
+                    Display error message.
+                */
+                errorMessage.style.display = "block";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
